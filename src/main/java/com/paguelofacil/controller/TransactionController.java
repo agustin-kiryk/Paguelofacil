@@ -49,18 +49,21 @@ public class TransactionController {
     List<TransactionEntity> transacciones = new ArrayList<>();
     for (JsonNode transaccionNode : root.path("data")) {
       TransactionJson transaccionJson = objectMapper.treeToValue(transaccionNode, TransactionJson.class);
-      Optional<TransactionEntity> optionalTransaccion = transactionRepository.findById(Long.valueOf(transaccionJson.getIdTransaction()));
+      Optional<TransactionEntity> optionalTransaccion = transactionRepository.findByIdTransaction(Long.valueOf(transaccionJson.getIdTransaction()));
       if (!optionalTransaccion.isPresent()) {
         // Si no existe, crear una nueva transacción y agregarla a la lista
         TransactionEntity transaccion = new TransactionEntity();
         transaccion.setIdTransaction(Long.valueOf(transaccionJson.getIdTransaction()));
         transaccion.setEmail(transaccionJson.getEmail());
         transaccion.setPhone(transaccionJson.getPhone());
+        transaccion.setAmount(transaccionJson.getAmount());
         transacciones.add(transaccion);
+
+        transactionRepository.saveAll(transacciones);
       }
       // Si ya existe, no hacer nada
     }
-    transactionRepository.saveAll(transacciones);
+
 
     return response;
   }

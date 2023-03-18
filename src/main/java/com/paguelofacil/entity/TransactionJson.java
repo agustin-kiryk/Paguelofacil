@@ -17,6 +17,10 @@ public class TransactionJson {
   @JsonProperty("phone")
   private String phone;
 
+  @JsonProperty("amount")
+  private Float amount;
+
+
 
 
 }

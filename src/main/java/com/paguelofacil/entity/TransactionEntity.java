@@ -21,6 +21,8 @@ public class TransactionEntity {
   private Long idTransaction;
   private String email;
   private String phone;
+  private Float amount;
+
 
   @Override
   public boolean equals(Object obj) {
