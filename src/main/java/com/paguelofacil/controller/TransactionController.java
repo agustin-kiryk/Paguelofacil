@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paguelofacil.entity.TransactionEntity;
 import com.paguelofacil.entity.TransactionJson;
 import com.paguelofacil.repository.ITransactionRepository;
+import com.paguelofacil.service.ITransactionService;
 import com.paguelofacil.service.Impl.TransactionService;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import org.springframework.web.client.RestTemplate;
 public class TransactionController {
 
   @Autowired
-  private TransactionService pagueloFacilClient;
+  private ITransactionService transactionService;
   @Autowired
   private ITransactionRepository transactionRepository;
 
@@ -68,4 +69,17 @@ public class TransactionController {
     return response;
   }
 
+  @GetMapping("Transactions2")
+  public ResponseEntity<String> getTransactions2() {
+    ResponseEntity<String> transactions = transactionService.getTransactions2();
+    return transactions;
+  }
 }
+
+
+
+
+
+
+
+
