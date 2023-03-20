@@ -16,9 +16,5 @@ public class Application {
 		return new RestTemplate();
 	}
 
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
 
 }
