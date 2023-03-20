@@ -22,12 +22,26 @@ public class TransactionEntity {
   private String email;
   private String phone;
   private Float amount;
+  private String merchantName;
+  private String binBank;
+  private String txConcept;
+  private String codAuth;
+  private String authStatus;
+  private String dateTms;
+  private String cardType;
+  private String txDescription;
+
 
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null || getClass() != obj.getClass()) return false;
+
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null || getClass() != obj.getClass()) {
+      return false;
+    }
 
     TransactionEntity that = (TransactionEntity) obj;
 
