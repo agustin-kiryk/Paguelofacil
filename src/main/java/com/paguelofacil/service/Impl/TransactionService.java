@@ -48,6 +48,7 @@ public class TransactionService implements ITransactionService {
 
    @Override
    public ResponseEntity<String> getTransactionsAndSave() {
+
       HttpHeaders headers = new HttpHeaders();
       headers.set("Authorization", paguelofacilToken);
 
@@ -71,6 +72,7 @@ public class TransactionService implements ITransactionService {
       }
 
       assert root != null;
+
       List<TransactionJson> transactionsJson = objectMapper.convertValue(root.path("data"),
           new TypeReference<List<TransactionJson>>() {
           });
@@ -81,8 +83,10 @@ public class TransactionService implements ITransactionService {
 
       List<TransactionEntity> newTransactions = new ArrayList<>();
       for (TransactionEntity transaction : transactions) {
+
          Optional<TransactionEntity> optionalTransaction = transactionRepository.findByIdTransaction(
              transaction.getIdTransaction());
+
          if (!optionalTransaction.isPresent()) {
             newTransactions.add(transaction);
          }
@@ -118,5 +122,6 @@ public class TransactionService implements ITransactionService {
    }
 
 }
+
 
 

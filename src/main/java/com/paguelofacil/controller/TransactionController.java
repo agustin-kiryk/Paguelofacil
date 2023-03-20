@@ -1,5 +1,6 @@
 package com.paguelofacil.controller;
 
+
 import com.paguelofacil.dto.TransactionDto;
 import com.paguelofacil.entity.TransactionEntity;
 import com.paguelofacil.mapper.TransactionMapper;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class TransactionController {
 
@@ -21,6 +23,7 @@ public class TransactionController {
   private ITransactionService transactionService;
   @Autowired
   private ITransactionRepository transactionRepository;
+
   @Autowired
   private TransactionMapper transactionMapper;
   @Autowired
@@ -55,14 +58,8 @@ public class TransactionController {
     return ResponseEntity.ok(transactionDtos);
   }
 
+
 }
-
-
-
-
-
-
-
 
 
 

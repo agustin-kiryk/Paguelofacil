@@ -13,5 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface ITransactionRepository extends JpaRepository<TransactionEntity, Long>,
     JpaSpecificationExecutor<TransactionEntity> {
 
+
   Optional<TransactionEntity> findByIdTransaction(Long valueOf);
 }

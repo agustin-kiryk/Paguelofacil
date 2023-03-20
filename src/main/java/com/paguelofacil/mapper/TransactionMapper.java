@@ -28,6 +28,7 @@ public class TransactionMapper {
 
   public List<TransactionDto> toTransactionDtos(List<TransactionEntity> transactionEntities,
       String fields) {
+
     return transactionEntities.stream()
         .map(this::toTransactionDto)
         .collect(Collectors.toList());
@@ -46,8 +47,8 @@ public class TransactionMapper {
     transactionEntity.setDateTms(transactionJson.getDateTms());
     transactionEntity.setCardType(transactionJson.getCardType());
     transactionEntity.setTxDescription(transactionJson.getTxDescription());
+
     return transactionEntity;
   }
 }
-
 

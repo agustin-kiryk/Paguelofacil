@@ -19,4 +19,5 @@ public class TransactionDto {
     private String cardType;
     private String txDescription;
 
+
 }

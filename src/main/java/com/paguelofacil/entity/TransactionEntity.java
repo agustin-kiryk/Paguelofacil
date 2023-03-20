@@ -32,8 +32,10 @@ public class TransactionEntity {
   private String txDescription;
 
 
+
   @Override
   public boolean equals(Object obj) {
+
     if (this == obj) {
       return true;
     }
